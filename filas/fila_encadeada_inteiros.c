@@ -25,7 +25,6 @@ void ret(FILA_ENC);
 int cons_ret(FILA_ENC);
 void destruir(FILA_ENC);
 int tam(FILA_ENC);// temos um protótipo novo que vamos implementa
-}
 
 void cria_fila(FILA_ENC *pf){//A única diferença é a inicalização adequada do NE
     *pf = (DESCRITOR *)malloc(sizeof(DESCRITOR));
@@ -36,6 +35,10 @@ void cria_fila(FILA_ENC *pf){//A única diferença é a inicalização adequada 
     }
     (*pf)->ne = 0;//vai receber o valor 0, já que não tem nenhum elemento na fila
     (*pf)->INICIO = (*pf)->FIM = NULL;
+}
+
+int eh_vazia(FILA_ENC f){
+    return (f->INICIO == NULL);
 }
 
 void ins(FILA_ENC f, int v){
@@ -51,9 +54,17 @@ void ins(FILA_ENC f, int v){
         f->INICIO = novo;
     }else{
         f->FIM->next = novo;
-        f->FIM = novo;
     }
+    f->FIM = novo;
     f->ne++;//necessidade de atualizar o numero de elementos na fila
+}
+
+int cons(FILA_ENC f){
+    if(eh_vazia(f)){
+        printf("\nErro! Consulta na fila vazia.\n");
+        exit(2);
+    }
+    return (f->INICIO->inf);
 }
 
 void ret(FILA_ENC f){
@@ -83,7 +94,8 @@ int cons_ret(FILA_ENC f){
         int v = f->INICIO->inf;
         NODO *aux = f->INICIO;
         f->INICIO = f->INICIO->next;
-        f->FIM = NULL;
+        if(!f->INICIO)
+            f->FIM = NULL;
         free(aux);
         f->ne--;//decrementar o numero de elementos na fila
         return(v);
@@ -94,6 +106,16 @@ int tam(FILA_ENC f){
    /* eu vou ter acessao ao tamanho, apenas acessando o campo NE do meu descritor.
    E retorno o campo NE do meu descritor.*/
     return(f->ne);
+}
+
+void destruir(FILA_ENC f){
+    NODO *aux;
+    while(f->INICIO){
+        aux = f->INICIO;
+        f->INICIO = f->INICIO->next;
+        free(aux);
+    }
+    free(f);
 }
 /*Como vimos, uma fila nada mais é do
 que uma lista com uma disciplina de acesso.

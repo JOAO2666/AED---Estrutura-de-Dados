@@ -461,28 +461,28 @@ int isleft(ARV_BIN_ENC arvore) {
 // ============================================================================
 
 // Percurso Pré-Ordem: Raiz → Esquerda → Direita
-void percursoPreOrdem(ARV_BIN_ENC arvore) {
+void percursoPreOrdemTAD(ARV_BIN_ENC arvore) {
     if (arvore) {                               // Se o nó existe
         printf("%d ", info(arvore));            // Visita a raiz (imprime o valor)
-        percursoPreOrdem(left(arvore));         // Percorre a subárvore esquerda
-        percursoPreOrdem(right(arvore));        // Percorre a subárvore direita
+        percursoPreOrdemTAD(left(arvore));      // Percorre a subárvore esquerda
+        percursoPreOrdemTAD(right(arvore));     // Percorre a subárvore direita
     }
 }
 
 // Percurso In-Ordem: Esquerda → Raiz → Direita
-void percursoInOrdem(ARV_BIN_ENC arvore) {
+void percursoInOrdemTAD(ARV_BIN_ENC arvore) {
     if (arvore) {                               // Se o nó existe
-        percursoInOrdem(left(arvore));          // Percorre a subárvore esquerda
+        percursoInOrdemTAD(left(arvore));       // Percorre a subárvore esquerda
         printf("%d ", info(arvore));            // Visita a raiz (imprime o valor)
-        percursoInOrdem(right(arvore));         // Percorre a subárvore direita
+        percursoInOrdemTAD(right(arvore));      // Percorre a subárvore direita
     }
 }
 
 // Percurso Pós-Ordem: Esquerda → Direita → Raiz
-void percursoPosOrdem(ARV_BIN_ENC arvore) {
+void percursoPosOrdemTAD(ARV_BIN_ENC arvore) {
     if (arvore) {                               // Se o nó existe
-        percursoPosOrdem(left(arvore));         // Percorre a subárvore esquerda
-        percursoPosOrdem(right(arvore));        // Percorre a subárvore direita
+        percursoPosOrdemTAD(left(arvore));      // Percorre a subárvore esquerda
+        percursoPosOrdemTAD(right(arvore));     // Percorre a subárvore direita
         printf("%d ", info(arvore));            // Visita a raiz (imprime o valor)
     }
 }
@@ -571,17 +571,17 @@ void exemploTAD_ARV_BIN_ENC() {
     // Demonstrando os três tipos de percurso usando o TAD
     printf("\n1. Percurso Pré-Ordem (Raiz-Esquerda-Direita):\n");
     printf("   Resultado: ");
-    percursoPreOrdem(raiz_tad);
+    percursoPreOrdemTAD(raiz_tad);
     printf("\n");
     
     printf("\n2. Percurso In-Ordem (Esquerda-Raiz-Direita):\n");
     printf("   Resultado: ");
-    percursoInOrdem(raiz_tad);
+    percursoInOrdemTAD(raiz_tad);
     printf("\n   (Valores em ordem crescente!)\n");
     
     printf("\n3. Percurso Pós-Ordem (Esquerda-Direita-Raiz):\n");
     printf("   Resultado: ");
-    percursoPosOrdem(raiz_tad);
+    percursoPosOrdemTAD(raiz_tad);
     printf("\n");
     
     // Demonstrando funcionalidades específicas do TAD
