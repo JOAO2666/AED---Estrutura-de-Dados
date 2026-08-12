@@ -1,77 +1,86 @@
-# Curso Completo de Estrutura de Dados em C
+# Estruturas de Dados em C
 
-Bem-vindo ao curso de Estrutura de Dados! Este repositório contém não apenas os códigos-fonte das implementações, mas também um guia de estudos completo para você aprender de forma estruturada, combinando videoaulas, teoria em PDFs e a prática com o código.
+Coleção didática de implementações de estruturas de dados na linguagem C. O repositório reúne exemplos independentes, módulos de apoio e materiais de estudo organizados por assunto.
 
-O material está organizado em módulos sequenciais, do básico ao avançado.
+## Objetivos
 
----
+- apresentar implementações legíveis de listas, pilhas, filas e árvores;
+- comparar alocação sequencial e encadeada;
+- servir como referência para exercícios e revisão;
+- facilitar a compilação isolada de cada exemplo;
+- preservar os materiais originais e indicar a origem do conteúdo consolidado.
 
-## 📚 Materiais de Apoio (PDFs)
+## Índice
 
-Todo o material teórico em PDF, incluindo slides de aula e notas, está disponível na seguinte pasta do Google Drive:
+1. [Organização do repositório](#organização-do-repositório)
+2. [Como compilar](#como-compilar)
+3. [Como estudar os exemplos](#como-estudar-os-exemplos)
+4. [Materiais de apoio](#materiais-de-apoio)
+5. [Origem da consolidação](#origem-da-consolidação)
 
-- ➡️ **[Acessar todos os PDFs no Google Drive](https://drive.google.com/drive/folders/1P5oDdYqPo6MuevTCy-tdUUNC1Lnxq9wb?usp=sharing)**
+## Organização do repositório
 
-Para facilitar, cada módulo abaixo indica quais arquivos da pasta são mais relevantes.
+| Pasta | Conteúdo |
+| --- | --- |
+| [`listas/`](listas/) | Lista sequencial, lista simplesmente encadeada e comparação entre listas simples, circulares e duplamente encadeadas. |
+| [`pilhas/`](pilhas/) | Pilhas com alocação sequencial e encadeada, além da conversão de expressões. |
+| [`filas/`](filas/) | Filas encadeadas genéricas e de inteiros; inclui um esboço histórico sobre ordenação por distribuição. |
+| [`arvores/`](arvores/) | Caracterização de árvores binárias, armazenamento sequencial e encadeado, árvore binária de busca e AVL. |
+| [`materiais/`](materiais/) | Roteiro da segunda prova, notas e um arquivo compactado legado preservado. |
 
----
+Os nomes de arquivos usam `snake_case`, sem espaços ou acentos, para funcionar de forma previsível em diferentes sistemas operacionais.
 
-## 🎓 Módulos do Curso
+## Como compilar
 
-### Módulo 1: Introdução a Estruturas de Dados
-**Descrição:** Este módulo inicial apresenta os conceitos fundamentais de tipos de dados, a importância da análise de algoritmos e as primeiras noções sobre alocação de memória.
-- **Recursos:**
-  - 🎥 **Vídeo:** [Introdução a Estruturas de Dados](https://www.youtube.com/watch?v=A_zL-8rhSbc&list=PLMx6FZj7-18bH9UWzsY31zf45eHn0I_dO&index=1)
-  - 📄 **PDFs Recomendados:** `aula1.pdf` a `aula4.pdf` (na pasta do Google Drive).
+Use um compilador compatível com C11, como GCC ou Clang.
 
----
+### Exemplos executáveis
 
-### Módulo 2: Listas Lineares, Ligadas e Circulares
-**Descrição:** Introdução ao conceito de listas, abordando implementações com alocação sequencial (vetores), ponteiros (listas ligadas, duplamente ligadas) e listas circulares.
-- **Recursos:**
-  - 🎥 **Vídeo:** [Listas - Alocação Sequencial](https://www.youtube.com/watch?v=u-S-t91-G4s&list=PLMx6FZj7-18bH9UWzsY31zf45eHn0I_dO&index=2)
-  - 💻 **Código no GitHub:** [Lista_Sequencial.c](https://github.com/JOAO2666/AED---Estrutura-de-Dados/blob/main/Lista_Sequencial.c)
-  - 📄 **PDFs Recomendados:** `aula5.pdf` a `aula11.pdf` (na pasta do Google Drive).
+Os arquivos abaixo possuem `main` e geram programas completos:
 
----
+```bash
+gcc -std=c11 -Wall -Wextra -pedantic listas/lista_simples_encadeada.c -o lista_simples
+gcc -std=c11 -Wall -Wextra -pedantic listas/listas_variacoes.c -o listas_variacoes
+gcc -std=c11 -Wall -Wextra -pedantic pilhas/pilha_encadeada.c -o pilha_encadeada
+gcc -std=c11 -Wall -Wextra -pedantic pilhas/conversao_expressoes.c -lm -o conversao_expressoes
+gcc -std=c11 -Wall -Wextra -pedantic arvores/arvore_binaria_busca.c -o arvore_busca
+```
 
-### Módulo 3: Pilhas (Stacks)
-**Descrição:** Este módulo aborda as pilhas, uma estrutura de dados do tipo LIFO (Last-In, First-Out). Você verá os conceitos, implementação e operações.
-- **Recursos:**
-  - 🎥 **Vídeos:**
-    - [Pilhas - Alocação Sequencial](https://www.youtube.com/watch?v=I-3hAD7X67g&list=PLMx6FZj7-18bH9UWzsY31zf45eHn0I_dO&index=3)
-    - [Pilhas - Alocação Encadeada](https://www.youtube.com/watch?v=r2K4a-t7bYg&list=PLMx6FZj7-18bH9UWzsY31zf45eHn0I_dO&index=4)
-  - 💻 **Códigos no GitHub:**
-    - [Pilhas_Alocacao_Sequencial.c](https://github.com/JOAO2666/AED---Estrutura-de-Dados/blob/main/Pilhas_Alocacao_Sequencial.c)
-    - [Pilhas_Alocacao_Encadeada.c](https://github.com/JOAO2666/AED---Estrutura-de-Dados/blob/main/Pilhas_Alocacao_Encadeada.c)
-    - [Exemplo_Pilhas_Conversao_Expressoes.c](https://github.com/JOAO2666/AED---Estrutura-de-Dados/blob/main/Exemplo_Pilhas_Conversao_Expressoes.c)
-  - 📄 **PDFs Recomendados:** `aula12.pdf` e `aula13.pdf` (na pasta do Google Drive).
+No Windows, acrescente `.exe` ao nome de saída se desejar, por exemplo `-o lista_simples.exe`.
 
----
+### Módulos sem `main`
 
-### Módulo 4: Filas (Queues)
-**Descrição:** Aqui você aprenderá sobre filas, uma estrutura de dados do tipo FIFO (First-In, First-Out). O módulo cobre conceitos, implementação, operações e filas circulares.
-- **Recursos:**
-  - 🎥 **Vídeo:** [Filas - Alocação Encadeada](https://www.youtube.com/watch?v=AViY2b41h9o&list=PLMx6FZj7-18bH9UWzsY31zf45eHn0I_dO&index=5)
-  - 💻 **Códigos no GitHub:**
-    - [Fila_Encadeada.c](https://github.com/JOAO2666/AED---Estrutura-de-Dados/blob/main/Fila_Encadeada.c)
-    - [Exemplo_Filas_Ordenacao_Distribuicao.c](https://github.com/JOAO2666/AED---Estrutura-de-Dados/blob/main/Exemplo_Filas_Ordenacao_Distribuicao.c)
-  - 📄 **PDFs Recomendados:** `aula14.pdf` a `aula16.pdf` (na pasta do Google Drive).
+Alguns arquivos foram escritos como módulos de estudo. Para verificar a sintaxe sem criar um executável, compile apenas o arquivo-objeto:
 
----
+```bash
+gcc -std=c11 -Wall -Wextra -pedantic -c listas/lista_sequencial.c
+gcc -std=c11 -Wall -Wextra -pedantic -c filas/fila_encadeada.c
+gcc -std=c11 -Wall -Wextra -pedantic -c arvores/arvore_avl.c
+```
 
-### Módulo 5: Árvores
-**Descrição:** Um dos tópicos mais importantes, este módulo aborda estruturas de dados não-lineares. Começa com a caracterização de árvores, passa pelas implementações, percursos e aprofunda em Árvores Binárias de Busca (ABB) e Árvores AVL.
-- **Recursos:**
-  - 🎥 **Vídeos:**
-    - [Árvores - Caracterização](https://www.youtube.com/watch?v=O8ey02t53i4&list=PLMx6FZj7-18bH9UWzsY31zf45eHn0I_dO&index=6)
-    - [Árvores Binárias (Alocação Sequencial e Encadeada)](https://www.youtube.com/watch?v=F-F5D58Lh38&list=PLMx6FZj7-18bH9UWzsY31zf45eHn0I_dO&index=7)
-    - [Árvore Binária de Busca (ABB)](https://www.youtube.com/watch?v=s413g4pS44s&list=PLMx6FZj7-18bH9UWzsY31zf45eHn0I_dO&index=9)
-    - [Árvore AVL](https://www.youtube.com/watch?v=okl2gI-0a-o&list=PLMx6FZj7-18bH9UWzsY31zf45eHn0I_dO&index=10)
-  - 💻 **Códigos no GitHub:**
-    - [Arvores_Caracterizacao_Binarias.c](https://github.com/JOAO2666/AED---Estrutura-de-Dados/blob/main/%C3%81rvores%20%E2%80%93%20Caracteriza%C3%A7%C3%A3o%20Bin%C3%A1rias.c)
-    - [Arvore_Binaria_Busca.c](https://github.com/JOAO2666/AED---Estrutura-de-Dados/blob/main/Arvore_Binaria_Busca.c)
-    - [Arvore_Balanceada_AVL.c](https://github.com/JOAO2666/AED---Estrutura-de-Dados/blob/main/Arvore_Balanceada_AVL.c)
-  - 📄 **PDFs Recomendados:** `aula18.pdf` a `aula22.pdf` (na pasta do Google Drive).
+Os artefatos de compilação (`*.o`, `*.obj` e `*.exe`) são ignorados pelo Git.
 
----
+## Como estudar os exemplos
+
+Uma sequência sugerida é:
+
+1. `listas/lista_sequencial.c`, para revisar armazenamento em vetor;
+2. `listas/lista_simples_encadeada.c`, para praticar ponteiros e alocação dinâmica;
+3. `pilhas/` e `filas/`, para comparar LIFO e FIFO;
+4. `arvores/caracterizacao_arvores_binarias.c`, antes das implementações de busca e balanceamento;
+5. `arvores/arvore_binaria_busca.c` e `arvores/arvore_avl.c`, para os tópicos avançados.
+
+Leia primeiro as estruturas (`struct` e `typedef`), depois os protótipos e, por fim, acompanhe as operações de inserção, busca e remoção. Quando houver `main`, altere os valores de exemplo e observe o efeito.
+
+## Materiais de apoio
+
+- [`materiais/roteiro-segunda-prova.pdf`](materiais/roteiro-segunda-prova.pdf): roteiro de revisão preservado do repositório original.
+- [`materiais/notas/pilha_sequencial.txt`](materiais/notas/pilha_sequencial.txt): anotação histórica sobre pilha sequencial.
+- [`materiais/arquivos-originais/todos_os_arquivos.zip`](materiais/arquivos-originais/todos_os_arquivos.zip): pacote legado mantido para não eliminar conteúdo potencialmente útil.
+- [`materiais/recursos-externos.md`](materiais/recursos-externos.md): links para PDFs, playlist e videoaulas que constavam no README original.
+
+## Origem da consolidação
+
+Os exemplos complementares de listas vieram de outros repositórios do mesmo autor. O arquivo [`ORIGENS.md`](ORIGENS.md) registra os repositórios e commits consultados, além dos critérios usados para evitar cópias redundantes.
+
+> Observação: o foco desta coleção é didático. Antes de reutilizar uma implementação em produção, acrescente testes, tratamento de erros adequado ao projeto e uma API separada em arquivos `.h` e `.c`.

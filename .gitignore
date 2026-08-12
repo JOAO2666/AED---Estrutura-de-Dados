@@ -18,6 +18,10 @@ jspm_packages/
 /dist
 /.angular
 /.svelte-kit
+*.o
+*.obj
+*.exe
+*.out
 
 # Arquivos de configuração de IDEs
 .idea/
