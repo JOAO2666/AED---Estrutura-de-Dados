@@ -6,10 +6,10 @@ FONTES := $(wildcard listas/*.c pilhas/*.c filas/*.c arvores/*.c)
 .PHONY: verificar listar-fontes
 
 verificar:
-	@for arquivo in $(FONTES); do \
+	@falhou=0; for arquivo in $(FONTES); do \
 		echo "Verificando $$arquivo"; \
-		$(CC) $(CFLAGS) -fsyntax-only "$$arquivo" || exit 1; \
-	done
+		$(CC) $(CFLAGS) -fsyntax-only "$$arquivo" || falhou=1; \
+	done; exit $$falhou
 
 listar-fontes:
 	@printf '%s\n' $(FONTES)
