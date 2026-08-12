@@ -34,3 +34,6 @@ jobs:
           fi
 
           exit "${falhou}"
+
+      - name: Compilar exemplos executáveis
+        run: make compilar-exemplos

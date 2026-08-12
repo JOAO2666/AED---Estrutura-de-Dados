@@ -60,6 +60,8 @@ gcc -std=c11 -Wall -Wextra -pedantic -c arvores/arvore_avl.c
 
 Os artefatos de compilação (`*.o`, `*.obj` e `*.exe`) são ignorados pelo Git.
 
+Em sistemas com `make`, use `make verificar` para conferir todos os arquivos C e `make compilar-exemplos` para gerar os cinco programas completos na pasta `build/`. O mesmo processo é executado automaticamente pelo GitHub Actions.
+
 ## Como estudar os exemplos
 
 Uma sequência sugerida é:
