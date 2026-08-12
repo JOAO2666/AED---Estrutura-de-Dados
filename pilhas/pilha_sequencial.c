@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define MAX 100
+
 /*Uma pilha é uma lista com restrições
 de acesso, onde todas as operações só
 podem ser aplicadas sobre uma das extremidades da

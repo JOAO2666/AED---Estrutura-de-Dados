@@ -77,12 +77,12 @@ depois disso atualizar o descritor, que será o campo fim   */
 
 /*situação se for uma fila vazia, eu vou atribuir o endereço do novo nodo ao campo INICIO e FIM*/
 
-void ins() {
+void ins(FILA_ENC f, int v) {
     /*declarar uma variável local*/
     NODO *novo;
     novo = (NODO *)malloc(sizeof(NODO));
     /*se a reserva foi bem, eu vou inicializar os campos do novo nodo*/
-    if(novo){
+    if(!novo){
         printf("\nErro!Memoria insuficiente\n");
         exit(1);//retornar para o usuário uma mensagem de erro e sair do programa
         /*se a reserva foi mal, eu vou imprimir uma mensagem de erro e sair do programa*/
@@ -91,12 +91,12 @@ void ins() {
     novo->next = NULL;//ultimo elemento
     if(eh_vazia(f)){ //verificar se a fila está vazia
         f->INICIO = novo;
-        else { //se a fila não estiver vazia, eu vou atribuir o endereço do novo nodo ao campo FIM, 
+    } else { //se a fila não estiver vazia, eu vou atribuir o endereço do novo nodo ao campo FIM,
         // e o campo Next do ultimo elemento vai ser o novo nodo
         f->FIM->next = novo;
-        f->FIM = novo;
     }
-    }//se a fila estiver vazia, eu vou atribuir o endereço do novo nodo ao campo INICIO e FIM
+    f->FIM = novo;
+    //se a fila estiver vazia, eu vou atribuir o endereço do novo nodo ao campo INICIO e FIM
 }
 int cons (FILA_ENC f){//consultar o valor de um elemento de uma fila não vazia
     if(eh_vazia(f)){//se a fila for vazia, imprimir uma mensagem de erro e sair do programa
@@ -154,8 +154,8 @@ int cons_ret (FILA_ENC f){//combinação da consulta e retirada
         printf("\nErro! Consulta e Retirada na Fila vazia.\n");
         exit(4);
     }else{//se a fila não estiver vazia, eu vou atribuir o endereço do primeiro elemento ao campo INICIO
-        int v=f->INICIO->inf;//armazenar na variavel local, armazenar contido no campo info do primieiro elemento da fila e guarda na variável v
-            nodo *aux = f->INICIO;//endereço de memeoria do elemento do primeiro nodo
+        int v=f->INICIO->info;//armazenar na variavel local, armazenar contido no campo info do primieiro elemento da fila e guarda na variável v
+        NODO *aux = f->INICIO;//endereço de memeoria do elemento do primeiro nodo
         f->INICIO = f->INICIO->next;//atualizar o campo INICIO para o campo Next do primeiro elemento
         if(!f->INICIO)//se o campo INICIO for NULL, eu vou atribuir NULL ao campo FIM
         f->FIM = NULL;

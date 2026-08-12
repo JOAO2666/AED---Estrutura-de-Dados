@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define MAX 100
+
 //usado para coocar restrições nos dados que são passados para a função
 /*fila é uma lista com 
 restrições de acesso, sobre as operações de 
@@ -48,7 +50,7 @@ int tam(Fila_SEQ *);
 void ins(Fila_SEQ *, int);
 int cons(Fila_SEQ *);
 void ret(Fila_SEQ *);
-void cons_ret(Fila_SEQ *);
+int cons_ret(Fila_SEQ *);
 //cons_ret retirar elemento e retornar o valor deste elemento
 
 /*prototipos das funções*/
@@ -79,6 +81,7 @@ void ins(Fila_SEQ *f, int v){
         exit(1);
     }
     f->FIM = (f->FIM + 1) % MAX;
+    f->val[f->FIM] = v;
     f->N++;
 // certificar se existe passo na fila, se N for igual a MAX, a fila está cheia
 //se a fila estiver cheia, imprimir uma mensagem de erro e sair do programa

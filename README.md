@@ -22,11 +22,11 @@ Coleção didática de implementações de estruturas de dados na linguagem C. O
 
 | Pasta | Conteúdo |
 | --- | --- |
-| [`listas/`](listas/) | Lista sequencial, lista simplesmente encadeada e comparação entre listas simples, circulares e duplamente encadeadas. |
+| [`listas/`](listas/) | Lista simplesmente encadeada e comparação entre listas sequenciais, simples, circulares e duplamente encadeadas. |
 | [`pilhas/`](pilhas/) | Pilhas com alocação sequencial e encadeada, além da conversão de expressões. |
-| [`filas/`](filas/) | Filas encadeadas genéricas e de inteiros; inclui um esboço histórico sobre ordenação por distribuição. |
-| [`arvores/`](arvores/) | Caracterização de árvores binárias, armazenamento sequencial e encadeado, árvore binária de busca e AVL. |
-| [`materiais/`](materiais/) | Roteiro da segunda prova, notas e um arquivo compactado legado preservado. |
+| [`filas/`](filas/) | Fila circular sequencial, filas encadeadas e um esboço histórico sobre ordenação por distribuição. |
+| [`arvores/`](arvores/) | Árvore binária de busca e AVL em exemplos compiláveis. |
+| [`materiais/`](materiais/) | Roteiro da segunda prova, notas, rascunhos incompletos preservados e um arquivo compactado legado. |
 
 Os nomes de arquivos usam `snake_case`, sem espaços ou acentos, para funcionar de forma previsível em diferentes sistemas operacionais.
 
@@ -53,7 +53,7 @@ No Windows, acrescente `.exe` ao nome de saída se desejar, por exemplo `-o list
 Alguns arquivos foram escritos como módulos de estudo. Para verificar a sintaxe sem criar um executável, compile apenas o arquivo-objeto:
 
 ```bash
-gcc -std=c11 -Wall -Wextra -pedantic -c listas/lista_sequencial.c
+gcc -std=c11 -Wall -Wextra -pedantic -c filas/fila_sequencial.c
 gcc -std=c11 -Wall -Wextra -pedantic -c filas/fila_encadeada.c
 gcc -std=c11 -Wall -Wextra -pedantic -c arvores/arvore_avl.c
 ```
@@ -64,10 +64,10 @@ Os artefatos de compilação (`*.o`, `*.obj` e `*.exe`) são ignorados pelo Git.
 
 Uma sequência sugerida é:
 
-1. `listas/lista_sequencial.c`, para revisar armazenamento em vetor;
-2. `listas/lista_simples_encadeada.c`, para praticar ponteiros e alocação dinâmica;
+1. `listas/lista_simples_encadeada.c`, para praticar ponteiros e alocação dinâmica;
+2. `listas/listas_variacoes.c`, para comparar representações sequenciais e encadeadas;
 3. `pilhas/` e `filas/`, para comparar LIFO e FIFO;
-4. `arvores/caracterizacao_arvores_binarias.c`, antes das implementações de busca e balanceamento;
+4. as notas históricas em `materiais/notas/`, como apoio conceitual;
 5. `arvores/arvore_binaria_busca.c` e `arvores/arvore_avl.c`, para os tópicos avançados.
 
 Leia primeiro as estruturas (`struct` e `typedef`), depois os protótipos e, por fim, acompanhe as operações de inserção, busca e remoção. Quando houver `main`, altere os valores de exemplo e observe o efeito.
